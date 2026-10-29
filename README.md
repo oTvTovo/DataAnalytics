@@ -17,7 +17,7 @@ Data Analysis Tool is a simple website that helps users analyze and visualize th
 4. Click on "統計分析" (Statistical Analysis) or "視覺化分析" (Visualization Analysis) to see the results.
 5. Use the "自訂圖表" (Custom Charts) section to create your own specific visualizations.
 6. Download the charts you need as PNG images.
-Website: **(https://otvtovo.github.io/DataAnlytics/)**
+Website: **(https://otvtovo.github.io/DataAnalytics/)**
 # 📱 Use on Your Phone
 You can add the website to your phone’s home screen for easy access.
 - iPhone: Open the website in Safari, tap the Share button, and choose “Add to Home Screen.”
