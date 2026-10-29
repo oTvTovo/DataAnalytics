@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-title" content="資料分析工具">
+<title>資料分析工具</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<header>
+  <div>
+    <h1>📝</h1>
+    <p>上傳 CSV / Excel</p>
+  </div>
+</header>
+
+<nav>
+  <button id="tab-upload" class="active" data-tab="upload">資料上傳</button>
+  <button id="tab-stats" data-tab="stats" disabled>統計分析</button>
+  <button id="tab-viz" data-tab="viz" disabled>視覺化分析</button>
+</nav>
+
+<main>
+  <!-- 篩選器：上傳資料後在「統計分析」「視覺化分析」顯示 -->
+  <section id="filterPanel" class="card" hidden>
+    <div class="fp-head">
+      <h3>🔎</h3>
+      <span id="filterInfo" class="note"></span>
+      <span class="spacer"></span>
+      <button class="btn ghost small" id="fpToggle">收合</button>
+    </div>
+    <div id="fpBody">
+      <div class="fp-block">
+        <div class="fp-title">1. 選擇要分析的變數
+          <button class="link" id="varAll">全選</button>
+          <button class="link" id="varNone">全不選</button>
+          <button class="link" id="varNum">只選數值</button>
+          <button class="link" id="varCat">只選類別</button>
+        </div>
+        <div id="varList" class="chips"></div>
+      </div>
+      <div class="fp-block">
+        <div class="fp-title">2. 依變數內容篩選資料列</div>
+        <div id="filterGrid" class="fgrid"></div>
+      </div>
+      <div class="row">
+        <button class="btn" id="applyFilter">套用篩選</button>
+        <button class="btn ghost" id="resetFilter">重設全部</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="upload">
+    <div class="card">
+      <div class="drop" id="drop">
+        <b>點擊選擇檔案 或把檔案拖到這裡</b>
+        <small>支援 .csv .tsv .txt .xlsx .xls</small>
+        <input type="file" id="file" accept=".csv,.tsv,.txt,.xlsx,.xls" hidden>
+      </div>
+      <div class="row">
+        <button class="btn ghost" id="sample">載入範例資料</button>
+        <span id="sheetWrap" style="display:none">工作表：<select id="sheet"></select></span>
+        <span id="fname" class="note"></span>
+      </div>
+    </div>
+    <div id="preview"></div>
+  </section>
+
+  <section id="stats" style="display:none"></section>
+  <section id="viz" style="display:none"></section>
+</main>
+
+<footer>資料分析工具</footer>
+<script src="app.js"></script>
+</body>
+</html>
